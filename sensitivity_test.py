@@ -190,7 +190,7 @@ def run_sweep():
                                        strength, rng=rng)
                 m = build_contact_matrix(df, ARRAY_START, PERIOD_BP, N_COPIES)
 
-                f1, s1, _ = fourier_analysis(m)
+                f1, s1, _ = fourier_analysis(m, detrend=False)
                 p1 = recovered_period(f1, s1)
                 if abs(p1 - TRUE_FOLD_PERIOD) / TRUE_FOLD_PERIOD < 0.15:
                     hits_plain += 1
